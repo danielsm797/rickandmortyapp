@@ -1,0 +1,19 @@
+<div class="grid">
+
+  <div class="col-2 p-5 border-right-2 border-white">
+
+    <div class="flex flex-column">
+
+      <app-card-menu *ngFor="let k of menu" [menu]="k" (outMenuSelected)="goTo(k)"></app-card-menu>
+
+    </div>
+
+  </div>
+
+  <div class="col p-5 container">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>

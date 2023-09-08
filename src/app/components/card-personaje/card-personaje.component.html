@@ -1,0 +1,12 @@
+<p-card class="card" (click)="verDetalle()">
+
+  <ng-template pTemplate="header">
+    <img alt="foto del personaje" [src]="personaje.image" />
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <h3>{{personaje.name}}</h3>
+    <small>{{personaje.status}}</small>
+  </ng-template>
+
+</p-card>

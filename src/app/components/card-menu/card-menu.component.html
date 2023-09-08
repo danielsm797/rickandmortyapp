@@ -1,0 +1,4 @@
+<div class="flex align-items-center justify-content-center h-10rem border-round m-2"
+  [ngClass]="{'bg-cyan-300': menu.activo, 'bg-primary': !menu.activo}" (click)="goTo()">
+  {{menu.nombre}}
+</div>

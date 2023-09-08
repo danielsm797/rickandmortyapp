@@ -1,0 +1,37 @@
+<!-- FILTRO-->
+
+<div class="grid p-4">
+
+  <div class="col-5">
+
+    <div class="p-inputgroup">
+
+      <input pInputText placeholder="Filter by name" [(ngModel)]="filter" (keyup)="filtrar()" />
+
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-search"></i>
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="flex flex-wrap justify-content-center gap-5 mt-5">
+
+  <!-- LISTA -->
+
+  <div class="flex" *ngFor="let k of personajes">
+
+    <app-card-personaje [personaje]="k"></app-card-personaje>
+
+  </div>
+
+</div>
+
+<!-- PAGINACIÓN -->
+
+<div class="flex flex-wrap justify-content-center mt-5">
+  <p-paginator (onPageChange)="pageChange($event)" [first]="0" [rows]="rows" [totalRecords]="total"></p-paginator>
+</div>

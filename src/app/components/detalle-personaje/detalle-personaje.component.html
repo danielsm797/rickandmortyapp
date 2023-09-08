@@ -1,0 +1,68 @@
+<div class="grid" *ngIf="isLoading">
+
+  <div class="col-5">
+
+    <p-skeleton width="17rem" height="2rem" styleClass="mb-2"></p-skeleton>
+
+    <p-skeleton width="17rem" height="15rem" styleClass="mb-2"></p-skeleton>
+
+  </div>
+
+  <div class="col-7">
+
+    <p-skeleton width="10rem" height="1rem" styleClass="mt-7"></p-skeleton>
+    <p-skeleton width="25rem" height="2rem" styleClass="mb-3 mt-1"></p-skeleton>
+
+    <p-skeleton width="10rem" height="1rem"></p-skeleton>
+    <p-skeleton width="25rem" height="2rem" styleClass="mb-3 mt-1"></p-skeleton>
+
+    <p-skeleton width="10rem" height="1rem"></p-skeleton>
+    <p-skeleton width="25rem" height="2rem" styleClass="mb-3 mt-1"></p-skeleton>
+
+  </div>
+
+</div>
+
+<div class="grid" *ngIf="!isLoading">
+
+  <div class="col-5">
+
+    <h1>{{personaje.name}}</h1>
+
+    <p-image imageClass="avatar" [src]="personaje.image" alt="Image" width="250"></p-image>
+
+  </div>
+
+  <div class="col-7">
+
+    <div class="flex flex-column gap-2">
+      <label htmlFor="status">Status</label>
+      <input title="Status" pInputText id="status" readonly [value]="personaje.status" />
+    </div>
+
+    <div class="flex flex-column gap-2 mt-2">
+      <label htmlFor="species">Species</label>
+      <input title="Species" pInputText id="species" readonly [value]="personaje.species" />
+    </div>
+
+    <div class="flex flex-column gap-2 mt-2">
+      <label htmlFor="type">Type</label>
+      <input title="Type" pInputText id="type" readonly [value]="personaje.type || 'sin información...'" />
+    </div>
+
+    <div class="flex flex-column gap-2 mt-2">
+      <label htmlFor="origin">Origin</label>
+      <input title="Origin" pInputText id="origin" readonly [value]="personaje.origin.name" />
+    </div>
+
+  </div>
+
+  <h3>Episodios en los que aparece</h3>
+
+  <div class="col-12 card flex align-items-center gap-2 flex-wrap">
+
+    <p-chip [label]="k.episode" *ngFor="let k of personaje.episode"></p-chip>
+
+  </div>
+
+</div>

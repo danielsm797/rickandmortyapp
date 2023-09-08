@@ -1,0 +1,13 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "/node_modules/primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
+
+body {
+  background-color: midnightblue;
+  font-family: var(--font-family);
+}
+
+.avatar {
+  border-radius: 20px !important;
+}
