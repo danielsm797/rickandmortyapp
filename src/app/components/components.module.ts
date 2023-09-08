@@ -12,12 +12,15 @@ import { ImageModule } from 'primeng/image';
 import { InputTextModule } from 'primeng/inputtext';
 import { ChipModule } from 'primeng/chip';
 import { SkeletonModule } from 'primeng/skeleton';
+import { LugaresEpisodiosComponent } from './lugares-episodios/lugares-episodios.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
     CardPersonajeComponent,
     CardMenuComponent,
-    DetallePersonajeComponent
+    DetallePersonajeComponent,
+    LugaresEpisodiosComponent
   ],
   providers: [
     DialogService
@@ -31,12 +34,14 @@ import { SkeletonModule } from 'primeng/skeleton';
     ImageModule,
     InputTextModule,
     ChipModule,
-    SkeletonModule
+    SkeletonModule,
+    TableModule
   ],
   exports: [
     CardPersonajeComponent,
     CardMenuComponent,
-    DetallePersonajeComponent
+    DetallePersonajeComponent,
+    LugaresEpisodiosComponent
   ]
 })
 export class ComponentsModule { }

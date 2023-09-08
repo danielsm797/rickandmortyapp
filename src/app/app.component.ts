@@ -27,22 +27,22 @@ export class AppComponent implements OnInit {
 
     this.menu = [
       {
-        nombre: 'Personajes',
+        nombre: 'Characters',
         icono: '',
         activo: true,
         path: '/personajes'
       },
       {
-        nombre: 'Lugares',
+        nombre: 'Locations',
         icono: '',
         activo: false,
         path: '/lugares'
       },
       {
-        nombre: 'Episodio',
+        nombre: 'Episodes',
         icono: '',
         activo: false,
-        path: '/episodio'
+        path: '/episodios'
       }
     ];
   }
