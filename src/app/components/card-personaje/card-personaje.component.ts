@@ -15,6 +15,9 @@ export class CardPersonajeComponent {
   @Input()
   personaje!: Personaje;
 
+  @Input()
+  isLoading = true;
+
   //#endregion
 
   //#region Constructor

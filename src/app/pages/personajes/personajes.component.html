@@ -6,7 +6,7 @@
 
     <div class="p-inputgroup">
 
-      <input pInputText placeholder="Filter by name" [(ngModel)]="filter" (keyup)="filtrar()" />
+      <input #txtFilter pInputText placeholder="Filter by name" [(ngModel)]="filter" />
 
       <span class="p-inputgroup-addon">
         <i class="pi pi-search"></i>
@@ -18,20 +18,48 @@
 
 </div>
 
-<div class="flex flex-wrap justify-content-center gap-5 mt-5">
+<ng-container *ngIf="!isLoading">
 
-  <!-- LISTA -->
+  <div class="flex flex-wrap justify-content-center gap-5 mt-5">
 
-  <div class="flex" *ngFor="let k of personajes">
+    <!-- LISTA -->
 
-    <app-card-personaje [personaje]="k"></app-card-personaje>
+    <div class="flex" *ngFor="let k of personajes">
+
+      <app-card-personaje [personaje]="k" [isLoading]="isLoading"></app-card-personaje>
+
+    </div>
+
+    <!-- SIN INFO -->
+
+    <div class="flex" *ngIf="!personajes.length">
+      <h1 class="text-blue-50">No se han encontrado personajes</h1>
+    </div>
 
   </div>
 
-</div>
+  <!-- PAGINACIÓN -->
 
-<!-- PAGINACIÓN -->
+  <div class="flex flex-wrap justify-content-center mt-5">
+    <p-paginator (onPageChange)="pageChange($event)" [first]="0" [rows]="rows" [totalRecords]="total"></p-paginator>
+  </div>
 
-<div class="flex flex-wrap justify-content-center mt-5">
-  <p-paginator (onPageChange)="pageChange($event)" [first]="0" [rows]="rows" [totalRecords]="total"></p-paginator>
-</div>
+</ng-container>
+
+<!-- SKELETON -->
+
+<ng-container *ngIf="isLoading">
+
+  <div class="flex flex-wrap justify-content-center gap-5 mt-5">
+
+    <!-- LISTA -->
+
+    <div class="flex" *ngFor="let k of [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]">
+
+      <app-card-personaje [isLoading]="isLoading"></app-card-personaje>
+
+    </div>
+
+  </div>
+
+</ng-container>

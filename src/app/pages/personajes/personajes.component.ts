@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription, Observable, fromEvent, debounceTime } from 'rxjs';
 import { Filter, Personaje } from 'src/app/helpers/types';
 import { PersonajesService } from 'src/app/services/Personajes.service';
 
@@ -8,9 +8,12 @@ import { PersonajesService } from 'src/app/services/Personajes.service';
   templateUrl: './personajes.component.html',
   styleUrls: ['./personajes.component.css']
 })
-export class PersonajesComponent implements OnInit, OnDestroy {
+export class PersonajesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   //#region Properties
+
+  @ViewChild('txtFilter')
+  txtFilter!: ElementRef;
 
   page = 1;
 
@@ -26,6 +29,8 @@ export class PersonajesComponent implements OnInit, OnDestroy {
 
   filter = '';
 
+  isLoading = true;
+
   //#endregion
 
   //#region Constructors
@@ -37,8 +42,6 @@ export class PersonajesComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.#loadPersonajes();
-
-    this.#addFiltros();
   }
 
   ngOnDestroy() {
@@ -46,38 +49,19 @@ export class PersonajesComponent implements OnInit, OnDestroy {
     this.#subs.forEach(x => x.unsubscribe());
   }
 
+  ngAfterViewInit() {
+
+    this.#subs
+      .push(
+        fromEvent(this.txtFilter.nativeElement, 'keyup')
+          .pipe(debounceTime(500))
+          .subscribe(() => this.#loadPersonajes())
+      );
+  }
+
   //#endregion
 
   //#region Methods
-
-  #addFiltros() {
-
-    this.filtros = [
-      {
-        name: 'Nombre',
-        code: 'nombre'
-      },
-      {
-        name: 'Estado',
-        code: 'nombre',
-        // lista: [
-        //   'alive',
-        //   'dead',
-        //   'unknown'
-        // ]
-      },
-      {
-        name: 'Genero',
-        code: 'nombre',
-        // lista: [
-        //   'female',
-        //   'male',
-        //   'genderless',
-        //   'unknown'
-        // ]
-      }
-    ];
-  }
 
   pageChange(event: any) {
 
@@ -90,6 +74,8 @@ export class PersonajesComponent implements OnInit, OnDestroy {
 
   async #loadPersonajes() {
 
+    this.isLoading = true;
+
     this.personajes = [];
 
     try {
@@ -101,16 +87,14 @@ export class PersonajesComponent implements OnInit, OnDestroy {
           this.personajes = result.personajes;
 
           this.total = result.total;
+
+          this.isLoading = false;
         });
 
     } catch (error) {
 
+      this.isLoading = false;
     }
-  }
-
-  filtrar() {
-
-    this.#loadPersonajes();
   }
 
   //#endregion
