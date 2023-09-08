@@ -49,9 +49,13 @@ export class PersonajesService {
 
   //#endregion
 
+  //#region Constructors
+
   constructor(
     private apollo: Apollo
   ) { }
+
+  //#endregion
 
   //#region Methods
 
