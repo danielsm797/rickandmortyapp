@@ -28,19 +28,19 @@ export class AppComponent implements OnInit {
     this.menu = [
       {
         nombre: 'Characters',
-        icono: '',
+        icono: 'pi-user',
         activo: true,
         path: '/personajes'
       },
       {
         nombre: 'Locations',
-        icono: '',
+        icono: 'pi-building',
         activo: false,
         path: '/lugares'
       },
       {
         nombre: 'Episodes',
-        icono: '',
+        icono: 'pi-sort-numeric-down',
         activo: false,
         path: '/episodios'
       }

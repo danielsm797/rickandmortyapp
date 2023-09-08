@@ -37,8 +37,8 @@ export class CardPersonajeComponent {
         data: {
           id: this.personaje.id
         },
-        header: `Información del personaje`,
-        width: '50%'
+        header: `Character information`,
+        width: '60%'
       });
   }
 

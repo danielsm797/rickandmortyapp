@@ -1,4 +1,5 @@
-<div class="flex align-items-center justify-content-center h-10rem border-round m-2"
-  [ngClass]="{'bg-cyan-300': menu.activo, 'bg-primary': !menu.activo}" (click)="goTo()">
-  {{menu.nombre}}
+<div class="flex align-items-center justify-content-center h-10rem border-round m-2 card"
+  [ngClass]="{'active': menu.activo, 'inactive': !menu.activo}" (click)="goTo()">
+  <i class="pi {{menu.icono}}"></i>
+  <h2 class="font-light">{{menu.nombre}}</h2>
 </div>

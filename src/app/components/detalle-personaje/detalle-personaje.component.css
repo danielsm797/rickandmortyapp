@@ -1,0 +1,9 @@
+:host ::ng-deep .p-chip  {
+  cursor: pointer !important;
+  transition: background-color 0.5s;
+}
+
+:host ::ng-deep .p-chip:hover {
+  background-color: #8bd469;
+  color: white;
+} 

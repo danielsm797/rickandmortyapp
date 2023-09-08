@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable, map } from 'rxjs';
-import { Episodio } from '../helpers/types';
+import { DetalleEpisodio, Episodio } from '../helpers/types';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,8 @@ export class EpisodiosService {
         air_date
         characters {
           image
+          name
+          id
         }
       }
     }
@@ -67,7 +69,7 @@ export class EpisodiosService {
       })));
   }
 
-  getDetalleEpidosio(id: number): Observable<Episodio> {
+  getDetalleEpidosio(id: number): Observable<DetalleEpisodio> {
 
     return this.apollo
       .watchQuery<any>({

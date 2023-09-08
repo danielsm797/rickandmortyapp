@@ -20,6 +20,7 @@ import { DetalleLugarComponent } from './detalle-lugar/detalle-lugar.component';
 import { DetalleEpisodioComponent } from './detalle-episodio/detalle-episodio.component';
 import { TooltipModule } from 'primeng/tooltip';
 import { ResidentsComponent } from './residents/residents.component';
+import { SkeletonDetalleComponent } from './skeleton-detalle/skeleton-detalle.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ResidentsComponent } from './residents/residents.component';
     LugaresEpisodiosComponent,
     DetalleLugarComponent,
     DetalleEpisodioComponent,
-    ResidentsComponent
+    ResidentsComponent,
+    SkeletonDetalleComponent
   ],
   providers: [
     DialogService

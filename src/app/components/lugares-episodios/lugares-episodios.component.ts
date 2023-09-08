@@ -125,8 +125,8 @@ export class LugaresEpisodiosComponent implements OnDestroy, AfterViewInit {
       DetalleEpisodioComponent;
 
     const header = this.typeView === TypeView.LUGAR ?
-      'Información del lugar' :
-      'Información del episodio';
+      'Locations information' :
+      'Epidose information';
 
     this.dialogService
       .open(component, {

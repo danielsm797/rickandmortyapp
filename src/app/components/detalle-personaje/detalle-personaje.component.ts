@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { DetallePersonaje } from 'src/app/helpers/types';
 import { PersonajesService } from 'src/app/services/Personajes.service';
+import { DetalleEpisodioComponent } from '../detalle-episodio/detalle-episodio.component';
 
 @Component({
   selector: 'app-detalle-personaje',
@@ -22,8 +23,8 @@ export class DetallePersonajeComponent {
 
   constructor(
     private personajeService: PersonajesService,
-    public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig
+    private config: DynamicDialogConfig,
+    private dialogService: DialogService
   ) {
 
     const { id } = this.config.data;
@@ -54,6 +55,18 @@ export class DetallePersonajeComponent {
 
       this.isLoading = false;
     }
+  }
+
+  verDetalleEpisodio(id: number) {
+
+    this.dialogService
+      .open(DetalleEpisodioComponent, {
+        data: {
+          id
+        },
+        header: `Episode information`,
+        width: '40%'
+      });
   }
 
   //#endregion

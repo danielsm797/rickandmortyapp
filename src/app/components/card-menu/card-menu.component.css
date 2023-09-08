@@ -1,3 +1,24 @@
 .card {
-  
+  cursor: pointer;
+  color: white;
+  transition: border .5s;
+}
+
+.card:hover {
+  border: 5px solid white;
+  font-size: large;
+}
+
+.active {
+  background-color: #8bd469;
+}
+
+.inactive {
+  background-color: #3e8d5b;
+}
+
+i {
+  font-size: 7em;
+  position: absolute;
+  opacity: 0.4;;
 }

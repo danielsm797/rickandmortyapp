@@ -1,6 +1,10 @@
 .container {
   overflow: auto;
   overflow-x: hidden;
-  max-height: 98vh;
-  height: 98vh;
+  max-height: 99vh;
+  height: 99vh;
+}
+
+.menu {
+  background-color: rgba(0, 0, 0, .4);
 }

@@ -13,6 +13,7 @@ export type Filter = {
 export type Image = {
   image: string;
   name: string;
+  id: number;
 };
 
 // Personajes
@@ -32,7 +33,10 @@ export type DetallePersonaje = {
   type: string;
   gender: string;
   origin: { name: string },
-  episode: { episode: string }[],
+  episode: {
+    episode: string,
+    id: number
+  }[],
   created: string
 };
 

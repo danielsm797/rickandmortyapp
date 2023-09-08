@@ -35,6 +35,7 @@ export class LugaresService {
         residents {
           image
           name
+          id
         }
       }
     }

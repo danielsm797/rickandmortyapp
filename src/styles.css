@@ -4,7 +4,8 @@
 @import "primeicons/primeicons.css";
 
 body {
-  background-color: midnightblue;
+  background-color: #1a380b;
+  background-image: url('../src/assets/imgs/blob.svg');
   font-family: var(--font-family);
 }
 

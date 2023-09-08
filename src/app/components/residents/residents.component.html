@@ -1,11 +1,12 @@
 <div class="grid">
 
   <div class="col-12">
-    <h2 class="mb-0 mt-0">Residents ({{residents.length}})</h2>
+    <h2 class="mb-0 mt-0">{{title}} ({{residents.length}})</h2>
   </div>
 
   <div class="flex flex-wrap justify-content-center gap-2 mt-2">
-    <img [pTooltip]="k.name" class="w-5rem border-round-lg" *ngFor="let k of residents" [src]="k.image" />
+    <img [pTooltip]="k.name" class="w-5rem border-round-lg" *ngFor="let k of residents" [src]="k.image"
+      (click)="verDetallePersonaje(k.id)" />
   </div>
 
 </div>

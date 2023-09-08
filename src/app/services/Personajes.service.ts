@@ -40,7 +40,8 @@ export class PersonajesService {
           name
         },
         episode {
-          episode
+          episode,
+          id
         },
         created
       }

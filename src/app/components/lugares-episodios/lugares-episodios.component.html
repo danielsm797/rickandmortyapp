@@ -2,7 +2,7 @@
 
   <!-- FILTRO-->
 
-  <div class="col-5">
+  <div class="sm:col-12 md:col-12 lg:col-5 xl:col-5">
 
     <h1 class="mt-0 text-white font-light">
       {{title}}
@@ -29,15 +29,17 @@
       <ng-template pTemplate="header">
         <tr>
 
-          <th pSortableColumn="name" style="width:20%">
-            Name <p-sortIcon field="name"></p-sortIcon>
+          <th style="width:20%">
+            Name
           </th>
 
-          <th pSortableColumn="type" style="width:20%">
-            {{!typeView ? 'Type' : 'Episode number'}} <p-sortIcon field="type"></p-sortIcon>
+          <th style="width:20%">
+            {{!typeView ? 'Type' : 'Episode number'}}
           </th>
 
-          <th style="width: 10%;">Status</th>
+          <th style="width: 10%;">
+            Action
+          </th>
 
         </tr>
       </ng-template>
@@ -51,7 +53,7 @@
           <td>{{ !typeView ? data.type : data.episode}}</td>
 
           <td>
-            <p-button styleClass="p-button-outlined p-button-sm" icon="pi pi-eye" label="Ver Detalle"
+            <p-button styleClass="p-button-outlined p-button-sm p-button-success" icon="pi pi-eye" label="See Detail"
               (click)="verDetalle(data)"></p-button>
           </td>
 

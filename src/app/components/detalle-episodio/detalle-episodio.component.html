@@ -1,1 +1,22 @@
-<p>detalle-episodio works!</p>
+<!-- SKELETON -->
+
+<app-skeleton-detalle *ngIf="isLoading"></app-skeleton-detalle>
+
+<!-- INFO -->
+
+<ng-container *ngIf="!isLoading">
+
+  <div class="grid">
+
+    <div class="col-12">
+      <h1 class="mb-0">{{detalle.name}}</h1>
+      <h3 class="font-light mt-0">
+        {{detalle.episode}} - released <strong>{{detalle.air_date}}</strong>
+      </h3>
+    </div>
+
+  </div>
+
+  <app-residents [residents]="detalle.characters" [title]="'Characters'"></app-residents>
+
+</ng-container>

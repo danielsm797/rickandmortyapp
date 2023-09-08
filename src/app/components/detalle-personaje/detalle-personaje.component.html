@@ -29,15 +29,15 @@
 
 <div class="grid" *ngIf="!isLoading">
 
-  <div class="col-5">
+  <div class="sm:col-12 md:col-12 lg:col-5 xl:col-5">
 
-    <h1>{{personaje.name}}</h1>
+    <h1 class="mt-0">{{personaje.name}}</h1>
 
     <p-image imageClass="avatar" [src]="personaje.image" alt="Image" width="250"></p-image>
 
   </div>
 
-  <div class="col-7">
+  <div class="sm:col-12 md:col-12 lg:col-7 xl:col-7">
 
     <div class="flex flex-column gap-2">
       <label htmlFor="status">Status</label>
@@ -61,11 +61,11 @@
 
   </div>
 
-  <h3>Episodios en los que aparece</h3>
+  <h2 class="ml-2">Episodes</h2>
 
   <div class="col-12 card flex align-items-center gap-2 flex-wrap">
 
-    <p-chip [label]="k.episode" *ngFor="let k of personaje.episode"></p-chip>
+    <p-chip [label]="k.episode" *ngFor="let k of personaje.episode" (click)="verDetalleEpisodio(k.id)"></p-chip>
 
   </div>
 
