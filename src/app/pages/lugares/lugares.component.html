@@ -1,1 +1,2 @@
-<app-lugares-episodios title="Lugares de Rick & Morty" [data]="lugares"></app-lugares-episodios>
+<app-lugares-episodios title="Lugares de Rick & Morty" (outLoadData)="getLugares()" [data]="lugares" [total]="total"
+  [(filter)]="filter" [(page)]="page" [typeView]="typeView" [isLoading]="isLoading"></app-lugares-episodios>

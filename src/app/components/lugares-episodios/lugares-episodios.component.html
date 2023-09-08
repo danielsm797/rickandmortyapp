@@ -1,8 +1,8 @@
-<!-- FILTRO-->
-
 <div class="grid pl-5">
 
-  <div class="col-10">
+  <!-- FILTRO-->
+
+  <div class="col-5">
 
     <h1 class="mt-0 text-white font-light">
       {{title}}
@@ -20,7 +20,9 @@
 
   </div>
 
-  <div class="col-12">
+  <!-- TABLA -->
+
+  <div class="col-12" *ngIf="data.length && !isLoading">
 
     <p-table [value]="data" [tableStyle]="{'min-width': '60rem'}" styleClass="p-datatable-sm">
 
@@ -32,7 +34,7 @@
           </th>
 
           <th pSortableColumn="type" style="width:20%">
-            Type <p-sortIcon field="type"></p-sortIcon>
+            {{!typeView ? 'Type' : 'Episode number'}} <p-sortIcon field="type"></p-sortIcon>
           </th>
 
           <th style="width: 10%;">Status</th>
@@ -46,10 +48,11 @@
 
           <td>{{data.name}}</td>
 
-          <td>{{data.type}}</td>
+          <td>{{ !typeView ? data.type : data.episode}}</td>
 
           <td>
-            <p-button styleClass="p-button-outlined p-button-sm" icon="pi pi-eye" label="Ver Detalle"></p-button>
+            <p-button styleClass="p-button-outlined p-button-sm" icon="pi pi-eye" label="Ver Detalle"
+              (click)="verDetalle(data)"></p-button>
           </td>
 
         </tr>
@@ -61,3 +64,26 @@
   </div>
 
 </div>
+
+<!-- CARGANDO -->
+
+<div class="flex flex-wrap justify-content-center" *ngIf="isLoading">
+  <h1 class="text-blue-50 font-light">Cargando...</h1>
+</div>
+
+<ng-container *ngIf="!isLoading">
+
+  <!-- SIN INFORMACIÓN -->
+
+  <div class="flex flex-wrap justify-content-center" *ngIf="!data.length">
+    <h1 class="text-blue-50 font-light">No se han encontrado lugares</h1>
+  </div>
+
+  <!-- PÁGINACIÓN -->
+
+  <div class="flex flex-wrap justify-content-center mt-5" *ngIf="data.length">
+    <p-paginator (onPageChange)="paginatorChange($event)" [first]="0" [rows]="rows"
+      [totalRecords]="total"></p-paginator>
+  </div>
+
+</ng-container>

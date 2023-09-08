@@ -12,6 +12,7 @@ export type Filter = {
 
 export type Image = {
   image: string;
+  name: string;
 };
 
 // Personajes

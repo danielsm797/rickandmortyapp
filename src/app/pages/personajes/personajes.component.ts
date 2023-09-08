@@ -55,7 +55,12 @@ export class PersonajesComponent implements OnInit, OnDestroy, AfterViewInit {
       .push(
         fromEvent(this.txtFilter.nativeElement, 'keyup')
           .pipe(debounceTime(500))
-          .subscribe(() => this.#loadPersonajes())
+          .subscribe(() => {
+
+            this.page = 1;
+
+            this.#loadPersonajes();
+          })
       );
   }
 

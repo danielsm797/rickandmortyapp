@@ -1,1 +1,3 @@
-<app-lugares-episodios title="Episodios de Rick & Morty"></app-lugares-episodios>
+<app-lugares-episodios title="Episodios de Rick & Morty" (outLoadData)="consultarEpisodios()" [data]="episodios"
+  [total]="total" [(filter)]="filter" [(page)]="page" [typeView]="typeView"
+  [isLoading]="isLoading"></app-lugares-episodios>

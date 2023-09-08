@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TypeView } from 'src/app/helpers/enums';
 import { Lugar } from 'src/app/helpers/types';
 import { LugaresService } from 'src/app/services/lugares.service';
 
@@ -21,6 +22,8 @@ export class LugaresComponent implements OnInit {
 
   total = 0;
 
+  typeView = TypeView.LUGAR;
+
   //#endregion
 
   //#region Constructors
@@ -31,14 +34,14 @@ export class LugaresComponent implements OnInit {
 
   ngOnInit() {
 
-    this.#getLugares();
+    this.getLugares();
   }
 
   //#endregion
 
   //#region Methods
 
-  #getLugares() {
+  getLugares() {
 
     this.isLoading = true;
 
@@ -51,7 +54,9 @@ export class LugaresComponent implements OnInit {
         .subscribe(obs => {
 
           this.lugares = obs.lugares;
-          this.total = 0;
+          this.total = obs.total;
+
+          this.isLoading = false;
         });
 
     } catch (error) {

@@ -14,19 +14,29 @@ import { ChipModule } from 'primeng/chip';
 import { SkeletonModule } from 'primeng/skeleton';
 import { LugaresEpisodiosComponent } from './lugares-episodios/lugares-episodios.component';
 import { TableModule } from 'primeng/table';
+import { FormsModule } from '@angular/forms';
+import { PaginatorModule } from 'primeng/paginator';
+import { DetalleLugarComponent } from './detalle-lugar/detalle-lugar.component';
+import { DetalleEpisodioComponent } from './detalle-episodio/detalle-episodio.component';
+import { TooltipModule } from 'primeng/tooltip';
+import { ResidentsComponent } from './residents/residents.component';
 
 @NgModule({
   declarations: [
     CardPersonajeComponent,
     CardMenuComponent,
     DetallePersonajeComponent,
-    LugaresEpisodiosComponent
+    LugaresEpisodiosComponent,
+    DetalleLugarComponent,
+    DetalleEpisodioComponent,
+    ResidentsComponent
   ],
   providers: [
     DialogService
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ButtonModule,
     CardModule,
     BadgeModule,
@@ -35,7 +45,9 @@ import { TableModule } from 'primeng/table';
     InputTextModule,
     ChipModule,
     SkeletonModule,
-    TableModule
+    TableModule,
+    PaginatorModule,
+    TooltipModule
   ],
   exports: [
     CardPersonajeComponent,

@@ -16,7 +16,7 @@ export class LugaresService {
       locations(page: $page, filter: { name: $filter }) {
         info {
           count
-        },
+        }
         results {
           id
           name
@@ -29,11 +29,12 @@ export class LugaresService {
   #queryGetDetalleLugar = gql`
     query getDetalleLugar($id: ID!) {
       location(id: $id){
-        name,
-        type,
+        name
+        type
         dimension
         residents {
           image
+          name
         }
       }
     }
